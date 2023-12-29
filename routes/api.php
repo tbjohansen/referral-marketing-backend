@@ -80,7 +80,7 @@ Route::controller(ProductController::class)->group(function () {
 | ORDERS Routes
 |--------------------------------------------------------------------------
 */
-Route::controller(OrderController::class)>prefix('user')->group(function () {
+Route::controller(OrderController::class)->prefix('user')->group(function () {
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('/orders', 'getUserOrders');

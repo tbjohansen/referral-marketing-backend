@@ -15,18 +15,19 @@ class UserController extends Controller
      * get all users
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
-    public function getUsers()
-    {
+    public function getUsers(){
         try {
+            
+            // => Get products
             $users = UserRepository::getAllUsers();
-
             if (!$users) {
-                return HttpResponse::error("User not found.", null, 404);
+                return HttpResponse::error('No user found', null, 404);
             }
 
-            return HttpResponse::success(count($users) . ' users retrieved successfully', $users);
+            return HttpResponse::success(count($users). " Users retrived succssfully", $users);
+
         } catch (\Throwable $th) {
-            return HttpResponse::serverError($th);
+            return HttpResponse::severError($th);
         }
     }
 
