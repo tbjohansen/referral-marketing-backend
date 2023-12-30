@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-
     /**
      * REGISTER user
      * @param \Illuminate\Http\Request $request

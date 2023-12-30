@@ -97,6 +97,4 @@ class OrderController extends Controller
             return HttpResponse::severError($th);
         }
     }
-
-    
 }

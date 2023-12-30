@@ -83,7 +83,7 @@ class ProductController extends Controller
             
             // => Update product
             $payload = [
-                "name" => $request->ame,
+                "name" => $request->name,
                 "price" => $request->price,
                 "description" => $request->description,
             ];

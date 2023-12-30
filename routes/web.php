@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+// => Migration
+Route::get('/migrate', function () {
+    Artisan::call('migrate');
+    return 'DB migrated';
+});
+
+// => Fresh migration
+Route::get('/migrate-fresh', function () {
+    Artisan::call('migrate:fresh');
+    return 'DB migrated fresh';
+});
+
+// => Storage link
+Route::get('/storage-link', function () {
+    Artisan::call('storage:link');
+    return 'Symlink generated';
 });

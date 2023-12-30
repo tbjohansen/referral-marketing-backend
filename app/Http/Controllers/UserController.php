@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Repositories\UserRepository;
 use App\Http\Helpers\HttpResponse;
 use App\Http\Validations\GlobalValidation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+// use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-
     /**
      * get all users
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response

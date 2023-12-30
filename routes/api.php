@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,6 +46,19 @@ Route::controller(AuthController::class)->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/logout', 'logout');
     });
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| ROLES Routes
+|--------------------------------------------------------------------------
+*/
+Route::controller(RoleController::class)->prefix('roles')->group(function () {
+    // => PUBLIC
+    Route::get('/', 'getAllRoles');
+    Route::post('/add', 'createRole');
+
 });
 
 

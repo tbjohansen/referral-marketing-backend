@@ -2,6 +2,8 @@
 
 namespace App\Exceptions;
 
+use App\Http\Helpers\HttpResponse;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -25,6 +27,13 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+        });
+
+        // => Custom sanctum Unauthenticated res
+        $this->renderable(function (AuthenticationException $e, $request) {
+            if ($request->is('api/*')) {
+                return HttpResponse::error("Unauthenticated", null, 401);
+            }
         });
     }
 }
